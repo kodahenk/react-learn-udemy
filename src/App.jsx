@@ -1,26 +1,14 @@
 import { useState } from "react";
+import Course from "./Course";
 
 function App() {
-  // course değişken adı
-  // setfirst değişkene değer atayacağımız fonksiyonA
-  const [course, setfirst] = useState(11);
+  const [course, setCourse] = useState(11);
 
-  const clickBtn = () => {
-    setfirst("call func" + course);
-  };
 
   return (
     <>
-      <div>
-        <button onClick={clickBtn}>clickBtn call</button>
-        <button
-          onClick={() => {
-            setfirst("arrow func inline");
-          }}
-        >
-          arrow func
-        </button>
-        <p>Course count: {course}</p>
+      <div className="container mt-3 shadow-sm border p-3">
+        <Course></Course>
       </div>
     </>
   );
