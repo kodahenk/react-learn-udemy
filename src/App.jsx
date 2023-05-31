@@ -1,28 +1,21 @@
 import { useState } from "react";
+import SearchForm from "./SearchForm";
 import "./App.css";
+import searchImages from "./Api";
 
 function App() {
   const [count, setCount] = useState(0);
 
+  const handleSubmit = (term) => {
+    searchImages(term);
+    // debugger;
+    console.log(term);
+  };
+
   return (
     <>
       <div className="container border shadow-sm p-3 my-5">
-        <form>
-          <div class="mb-3">
-            <label htmlFor="query" className="form-label">
-              Search:
-            </label>
-            <input
-              type="email"
-              className="form-control"
-              id="query"
-              aria-describedby="emailHelp"
-            />
-            <div id="queryHelp" className="form-text text-dark">
-              unsplash.com search demo app
-            </div>
-          </div>
-        </form>
+        <SearchForm search={handleSubmit}></SearchForm>
       </div>
     </>
   );
