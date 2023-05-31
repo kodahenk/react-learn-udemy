@@ -1,8 +1,15 @@
+import { useState } from "react";
+
 function SearchForm({ search }) {
+  const [value, setValue] = useState("");
+
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    search("orhan");
-    // debugger;
+    search(value);
+  };
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
   };
 
   return (
@@ -18,9 +25,11 @@ function SearchForm({ search }) {
               className="form-control"
               id="query"
               aria-describedby="emailHelp"
+              value={value}
+              onChange={handleChange}
             />
             <div id="queryHelp" className="form-text text-dark">
-              unsplash.com search demo app
+              unsplash.com search for {value}
             </div>
           </div>
         </form>
